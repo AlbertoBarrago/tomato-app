@@ -4,7 +4,6 @@ import React from 'react';
 import {TabBarIcon} from '@/components/navigation/TabBarIcon';
 import {Colors} from '@/constants/Colors';
 import {useColorScheme} from '@/hooks/useColorScheme';
-import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function TabLayout() {
     const colorScheme = useColorScheme();
@@ -29,7 +28,7 @@ export default function TabLayout() {
         options={{
           title: 'About',
           tabBarIcon: ({ color, focused }) => (
-              <AntDesign name="user" size={24} color={color} />
+              <TabBarIcon name={focused ? 'help' : 'help-outline'} color={color} />
           ),
         }}
       />

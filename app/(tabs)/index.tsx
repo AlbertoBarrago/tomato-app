@@ -13,7 +13,7 @@ import {
 } from "@/app/shared/timer";
 
 export default function HomeScreen() {
-    const [timer, setTimer] = useState("05:00");
+    const [timer, setTimer] = useState("25:00");
     const [isBreak, setIsBreak] = useState(false);
     const [cycleCount, setCycleCount] = useState(0);
     const [check, setCheck] = useState("");
@@ -68,7 +68,6 @@ export default function HomeScreen() {
 
     }, [isBreak]);
 
-
     return (
         <ParallaxScrollView
             headerBackgroundColor={{light: '#dc1581', dark: '#010201'}}
@@ -88,8 +87,12 @@ export default function HomeScreen() {
                 <Text style={styles.checkText}>{check}</Text>
             </ThemedView>
             <View style={styles.btnContainer}>
-                <Button title="Start" color="green" onPress={startTimer} disabled={isRunning}/>
-                <Button title="Reset" color="red" onPress={resetTimer}/>
+                <View style={styles.buttonWrapper}>
+                    <Button title="Start" color="green" onPress={startTimer} disabled={isRunning}/>
+                </View>
+                <View style={styles.buttonWrapper}>
+                    <Button title="Reset" color="red" onPress={resetTimer}/>
+                </View>
             </View>
         </ParallaxScrollView>
     );
@@ -126,10 +129,14 @@ const styles = StyleSheet.create({
         gap: 10,
     },
     btnContainer: {
+        marginTop:10,
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between'
+    },
+    buttonWrapper: {
+        flex: 1,
+        marginHorizontal: 10,
     },
     checkText: {
         fontSize: 24,
