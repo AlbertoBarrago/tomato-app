@@ -29,7 +29,7 @@ export default function TabLayout() {
         options={{
           title: 'About',
           tabBarIcon: ({ color, focused }) => (
-              <AntDesign name="user" size={24} color={color} />
+              <TabBarIcon name={focused ? 'help' : 'help-outline'} color={color} />
           ),
         }}
       />
