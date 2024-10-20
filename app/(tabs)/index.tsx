@@ -10,10 +10,10 @@ import {
     TIMER_SHORT_BREAK,
     TIMER_SPEED,
     TIMER_WORK
-} from "@/app/service/timer";
+} from "@/app/shared/timer";
 
 export default function HomeScreen() {
-    const [timer, setTimer] = useState("02:00");
+    const [timer, setTimer] = useState("05:00");
     const [isBreak, setIsBreak] = useState(false);
     const [cycleCount, setCycleCount] = useState(0);
     const [check, setCheck] = useState("");
@@ -33,11 +33,11 @@ export default function HomeScreen() {
                 intervalRef.current = null;
 
                 if (!isBreak) {
-                    setCycleCount((prev) => (prev === 4 ? 0 : prev + 1));
-                    setCheck("✔");
+                    setCycleCount((prev) => (prev === TIME_TRIGGER_LONG_BREAK ? 0 : prev + 1));
+                    setCheck(prevState => prevState + "✔");
                 }
 
-                setIsBreak((prev) => !prev);
+                setIsBreak(prevState => !prevState);
             }
         }, TIMER_SPEED);
     };
@@ -85,10 +85,10 @@ export default function HomeScreen() {
                 <View style={styles.timerContainer}>
                     <Text style={styles.timerTextStyle}>{timer}</Text>
                 </View>
+                <Text style={styles.checkText}>{check}</Text>
             </ThemedView>
             <View style={styles.btnContainer}>
                 <Button title="Start" color="green" onPress={startTimer} disabled={isRunning}/>
-                <Text style={styles.checkText}>{check}</Text>
                 <Button title="Reset" color="red" onPress={resetTimer}/>
             </View>
         </ParallaxScrollView>
@@ -117,6 +117,7 @@ const styles = StyleSheet.create({
     },
     timerTextStyle: {
         color: 'white',
+        fontSize: 50,
     },
     timerCta: {
         display: 'flex',
