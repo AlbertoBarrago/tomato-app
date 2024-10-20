@@ -1,6 +1,11 @@
-# Welcome to your Expo app 👋
+# Welcome to Tomato app ⏰
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Tomato timer App.
+
+Every 5 min of works you get 15 min of relax
+after 8 times you get 45 min of pause then customize how you wish. 
+
+Just for studies purpose. 
 
 ## Get started
 
