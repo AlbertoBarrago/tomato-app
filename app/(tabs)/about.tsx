@@ -14,7 +14,7 @@ export default function TabTwoScreen() {
         <ThemedText type="title">About</ThemedText>
       </ThemedView>
         <ThemedText>
-            Developer by alBz <br/>
+            Developed by 🥷🏻 alBz <br/>
             © 2024
         </ThemedText>
     </ParallaxScrollView>
