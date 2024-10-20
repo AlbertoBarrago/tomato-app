@@ -13,7 +13,7 @@ import {
 } from "@/app/shared/timer";
 
 export default function HomeScreen() {
-    const [timer, setTimer] = useState("05:00");
+    const [timer, setTimer] = useState("25:00");
     const [isBreak, setIsBreak] = useState(false);
     const [cycleCount, setCycleCount] = useState(0);
     const [check, setCheck] = useState("");
@@ -67,7 +67,6 @@ export default function HomeScreen() {
         startTimer();
 
     }, [isBreak]);
-
 
     return (
         <ParallaxScrollView
