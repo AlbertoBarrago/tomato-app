@@ -36,25 +36,19 @@ export function ThemedText({
 const styles = StyleSheet.create({
   default: {
     fontSize: 16,
-    lineHeight: 24,
   },
   defaultSemiBold: {
     fontSize: 16,
     fontFamily: "Roboto",
-    lineHeight: 24,
     fontWeight: '600',
   },
   title: {
     fontSize: 42,
-    fontFamily: "Roboto",
-    fontWeight: 'bold',
-    lineHeight: 32,
-    marginBottom: 20
   },
   subtitle: {
     fontSize: 20,
     fontFamily: "Roboto",
-    textAlign: 'center'
+    textAlign: 'center',
   },
   link: {
     lineHeight: 30,

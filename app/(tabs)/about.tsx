@@ -3,7 +3,7 @@ import React from "react";
 import {ThemedView} from "@/components/ThemedView";
 import {ThemedText} from "@/components/ThemedText";
 
-export default function TabTwoScreen() {
+export default function About() {
     return (
         <ThemedView style={styles.container}>
             <Image source={{ uri: 'https://picsum.photos/200/300' }} style={styles.image} />
@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
         width: 150,
         height: 150,
         borderRadius: 75,
-        marginBottom: 20,
     },
     text: {
         fontSize: 18,

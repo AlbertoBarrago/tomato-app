@@ -6,14 +6,14 @@ import React, {useState, useRef, useEffect} from 'react';
 import {
     formatTime,
     TIME_TRIGGER_LONG_BREAK,
-    TIMER_LONG_BREAK,
+    TIMER_LONG_BREAK, TIMER_PLACEHOLDER,
     TIMER_SHORT_BREAK,
     TIMER_SPEED,
     TIMER_WORK
 } from "@/app/shared/timer";
 
 export default function HomeScreen() {
-    const [timer, setTimer] = useState("25:00");
+    const [timer, setTimer] = useState(TIMER_PLACEHOLDER);
     const [isBreak, setIsBreak] = useState(false);
     const [cycleCount, setCycleCount] = useState(0);
     const [check, setCheck] = useState("");
@@ -47,7 +47,7 @@ export default function HomeScreen() {
             clearInterval(intervalRef.current);
             intervalRef.current = null;
         }
-        setTimer("05:00");
+        setTimer(TIMER_PLACEHOLDER);
         setIsBreak(false);
         setCycleCount(0);
         setCheck("");
@@ -71,17 +71,16 @@ export default function HomeScreen() {
     return (
         <ThemedView style={styles.container}>
             <ThemedView style={styles.titleContainer}>
-                <ThemedText type="title">Tomato-app</ThemedText>
-                <ThemedText type="subtitle">After 25 min of works you get 10 min of pause,{"\n"}after 7 repeat you gain 30 min of Relax</ThemedText>
+                <ThemedText style={{"color": "red"}} type="title">Tomato-app</ThemedText>
+                <ThemedText type="subtitle">After 25 min of works you get 10 min of pause, after 7 repeat you gain 30 min of Relax</ThemedText>
                 <Image source={require('@/assets/images/tomato.png')} style={styles.image}/>
                 <ThemedText style={styles.checkText}>
                     {check}
                 </ThemedText>
             </ThemedView>
             <ThemedView style={styles.timerContainer}>
-                <ThemedText style={styles.timerContainer}>
-                    <Text style={styles.timerTextStyle}>{isBreak ? "Break Time" : "Work Time"}: {timer}</Text>
-                </ThemedText>
+                <ThemedText> {isBreak ? "Break Time" : "Work Time"} </ThemedText>
+                <ThemedText style={styles.timerTextStyle}>{timer}</ThemedText>
             </ThemedView>
             <View style={styles.btnContainer}>
                 <View style={styles.btnWrapper}>
@@ -99,12 +98,10 @@ const styles = StyleSheet.create({
     container: {
         display: 'flex',
         flex: 1,
-        flexDirection: 'column',
-        padding: 10,
     },
     titleContainer: {
         alignItems: 'center',
-        marginTop: 30,
+        marginTop: 80,
     },
     checkText: {
         fontSize: 24,
@@ -113,32 +110,24 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 350,
-        height: 350,
-        borderRadius: 75,
-    },
-    text: {
-        fontSize: 18,
-        fontWeight: 'bold',
+        height: 230,
+        marginTop: 30
     },
     timerContainer: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop: 20
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginTop: 20,
     },
     timerTextStyle: {
-        color: 'white',
-        fontSize: 50,
+        fontSize: 40,
     },
     timerCta: {
-        display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
         gap: 10,
     },
     btnContainer: {
         marginTop: 40,
-        display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
