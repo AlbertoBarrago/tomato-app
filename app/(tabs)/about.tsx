@@ -1,35 +1,32 @@
-import Ionicons from '@expo/vector-icons/Ionicons';
-import {StyleSheet} from 'react-native';
-
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import {ThemedText} from '@/components/ThemedText';
-import {ThemedView} from '@/components/ThemedView';
+import {StyleSheet, Image} from 'react-native';
+import React from "react";
+import {ThemedView} from "@/components/ThemedView";
+import {ThemedText} from "@/components/ThemedText";
 
 export default function TabTwoScreen() {
-  return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={<Ionicons size={310} name="code-slash" style={styles.headerImage} />}>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">About</ThemedText>
-      </ThemedView>
-        <ThemedText>
-            Developed by 🥷🏻 alBz <br/>
-            © 2024
-        </ThemedText>
-    </ParallaxScrollView>
-  );
+    return (
+        <ThemedView style={styles.container}>
+            <Image source={{ uri: 'https://picsum.photos/200/300' }} style={styles.image} />
+            <ThemedText style={styles.text}>Hi, I'm alBz, a passionate developer from Cagliari!</ThemedText>
+        </ThemedView>
+    );
 }
 
 const styles = StyleSheet.create({
-    headerImage: {
-        color: '#808080',
-        bottom: -90,
-        left: -35,
-        position: 'absolute',
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f0f0f0',
     },
-    titleContainer: {
-        flexDirection: 'row',
-        gap: 8,
-    }
+    image: {
+        width: 150,
+        height: 150,
+        borderRadius: 75,
+        marginBottom: 20,
+    },
+    text: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
 });
