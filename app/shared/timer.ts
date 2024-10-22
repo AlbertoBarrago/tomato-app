@@ -2,7 +2,7 @@ export const TIMER_WORK = 25 * 60 * 1000;
 export const TIMER_SHORT_BREAK = 10 * 60 * 1000;
 export const TIMER_LONG_BREAK = 30 * 60 * 1000;
 export const TIME_TRIGGER_LONG_BREAK = 7;
-export const TIMER_SPEED = 1000;
+export const TIMER_SPEED = 100;
 
 export const formatTime = (ms: number) => {
     const minutes = Math.floor(ms / 60000);

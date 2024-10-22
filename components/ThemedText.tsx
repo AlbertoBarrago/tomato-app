@@ -49,12 +49,12 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto",
     fontWeight: 'bold',
     lineHeight: 32,
-    marginBottom: 10
+    marginBottom: 20
   },
   subtitle: {
     fontSize: 20,
     fontFamily: "Roboto",
-    fontWeight: 'bold',
+    textAlign: 'center'
   },
   link: {
     lineHeight: 30,

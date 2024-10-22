@@ -71,15 +71,17 @@ export default function HomeScreen() {
     return (
         <ThemedView style={styles.container}>
             <ThemedView style={styles.titleContainer}>
-                <ThemedText type="title">{isBreak ? "Break Time" : "Work Time"}</ThemedText>
-                <ThemedText type="subtitle">After 25 min of works you get 10 min of pause, after 7 repeat you get 30 min</ThemedText>
+                <ThemedText type="title">Tomato-app</ThemedText>
+                <ThemedText type="subtitle">After 25 min of works you get 10 min of pause,{"\n"}after 7 repeat you gain 30 min of Relax</ThemedText>
                 <Image source={require('@/assets/images/tomato.png')} style={styles.image}/>
+                <ThemedText style={styles.checkText}>
+                    {check}
+                </ThemedText>
             </ThemedView>
             <ThemedView style={styles.timerContainer}>
-                <View style={styles.timerContainer}>
-                    <Text style={styles.timerTextStyle}>Timer: {timer}</Text>
-                    <Text style={styles.checkText}>{check}</Text>
-                </View>
+                <ThemedText style={styles.timerContainer}>
+                    <Text style={styles.timerTextStyle}>{isBreak ? "Break Time" : "Work Time"}: {timer}</Text>
+                </ThemedText>
             </ThemedView>
             <View style={styles.btnContainer}>
                 <View style={styles.btnWrapper}>
@@ -107,7 +109,7 @@ const styles = StyleSheet.create({
     checkText: {
         fontSize: 24,
         color: 'green',
-        paddingHorizontal: 10,
+        margin: 20
     },
     image: {
         width: 350,
@@ -122,6 +124,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
+        marginTop: 20
     },
     timerTextStyle: {
         color: 'white',

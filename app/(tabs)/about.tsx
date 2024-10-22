@@ -7,7 +7,7 @@ export default function TabTwoScreen() {
     return (
         <ThemedView style={styles.container}>
             <Image source={{ uri: 'https://picsum.photos/200/300' }} style={styles.image} />
-            <ThemedText style={styles.text}>Hi, I'm alBz, a passionate developer from Cagliari!</ThemedText>
+            <ThemedText style={styles.text}>Hi, I'm alBz, a passionate software developer from Cagliari!</ThemedText>
         </ThemedView>
     );
 }
@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#f0f0f0',
     },
     image: {
         width: 150,
