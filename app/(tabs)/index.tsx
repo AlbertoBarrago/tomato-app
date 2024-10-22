@@ -1,8 +1,8 @@
-import {Button, Image, StyleSheet, Text, View} from 'react-native';
+import {Button, Image, StatusBar, StyleSheet, Text, View} from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import {ThemedText} from '@/components/ThemedText';
 import {ThemedView} from '@/components/ThemedView';
-import {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {
     formatTime,
     TIME_TRIGGER_LONG_BREAK,
@@ -69,49 +69,54 @@ export default function HomeScreen() {
     }, [isBreak]);
 
     return (
-        <ParallaxScrollView
-            headerBackgroundColor={{light: '#dc1581', dark: '#010201'}}
-            headerImage={
-                <Image
-                    source={require('@/assets/images/tomato.png')}
-                    style={styles.tomatoLogo}
-                />
-            }>
+        <ThemedView style={styles.container}>
             <ThemedView style={styles.titleContainer}>
                 <ThemedText type="title">{isBreak ? "Break Time" : "Work Time"}</ThemedText>
+                <ThemedText type="subtitle">After 25 min of works you get 10 min of pause, after 7 repeat you get 30 min</ThemedText>
+                <Image source={require('@/assets/images/tomato.png')} style={styles.image}/>
             </ThemedView>
             <ThemedView style={styles.timerContainer}>
                 <View style={styles.timerContainer}>
-                    <Text style={styles.timerTextStyle}>{timer}</Text>
+                    <Text style={styles.timerTextStyle}>Timer: {timer}</Text>
+                    <Text style={styles.checkText}>{check}</Text>
                 </View>
-                <Text style={styles.checkText}>{check}</Text>
             </ThemedView>
             <View style={styles.btnContainer}>
-                <View style={styles.buttonWrapper}>
+                <View style={styles.btnWrapper}>
                     <Button title="Start" color="green" onPress={startTimer} disabled={isRunning}/>
                 </View>
-                <View style={styles.buttonWrapper}>
+                <View style={styles.btnWrapper}>
                     <Button title="Reset" color="red" onPress={resetTimer}/>
                 </View>
             </View>
-        </ParallaxScrollView>
+        </ThemedView>
     );
 }
 
 const styles = StyleSheet.create({
-    titleContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 8,
-        marginBottom: 8,
+    container: {
+        display: 'flex',
+        flex: 1,
+        flexDirection: 'column',
+        padding: 10,
     },
-    tomatoLogo: {
-        height: 178,
-        width: 290,
-        bottom: -20,
-        left: -120,
-        position: 'absolute',
+    titleContainer: {
+        alignItems: 'center',
+        marginTop: 30,
+    },
+    checkText: {
+        fontSize: 24,
+        color: 'green',
+        paddingHorizontal: 10,
+    },
+    image: {
+        width: 350,
+        height: 350,
+        borderRadius: 75,
+    },
+    text: {
+        fontSize: 18,
+        fontWeight: 'bold',
     },
     timerContainer: {
         display: 'flex',
@@ -129,18 +134,13 @@ const styles = StyleSheet.create({
         gap: 10,
     },
     btnContainer: {
-        marginTop:10,
+        marginTop: 40,
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
-    buttonWrapper: {
+    btnWrapper: {
         flex: 1,
         marginHorizontal: 10,
-    },
-    checkText: {
-        fontSize: 24,
-        color: 'green',
-        paddingHorizontal: 10,
     },
 });
